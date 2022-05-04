@@ -10,7 +10,7 @@ const q = query(colRef, orderBy("author", "asc"));
 export const art = () =>
   getDocs(q)
     .then((snapshot) => {
-      let art: Array<Object> = [];
+      let art: object[] | any = [];
       snapshot.docs.forEach((doc) => {
         art.push({ ...doc.data(), id: doc.id });
       });
