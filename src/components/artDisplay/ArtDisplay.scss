@@ -1,0 +1,8 @@
+.art-work {
+  transition: 0.7s ease;
+  height: min-content;
+  &:hover {
+    z-index: 1;
+    transform: scale(1.1);
+  }
+}
