@@ -1,8 +1,21 @@
-.art-work {
-  transition: 0.7s ease;
-  height: min-content;
-  &:hover {
-    z-index: 1;
-    transform: scale(1.1);
+.ArtDisplay {
+  padding-top: 40px;
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .art-work {
+    transition: 0.7s ease;
+    height: min-content;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      z-index: 1;
+      transform: scale(1.1);
+    }
   }
 }
