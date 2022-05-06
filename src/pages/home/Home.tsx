@@ -3,6 +3,7 @@ import { art } from "../../firebase/art";
 import ArtDisplay from "../../components/artDisplay/ArtDisplay";
 import { Art } from "../../models/art";
 import Header from "../../components/header/Header";
+import "./Home.scss";
 
 const Home: React.FC = () => {
   const [artData, setArtData] = useState<Array<Art>>([]);
