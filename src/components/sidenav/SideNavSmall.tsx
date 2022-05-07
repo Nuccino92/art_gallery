@@ -2,7 +2,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import {
   Navbar,
-  Nav,
   InputGroup,
   Button,
   FormControl,
@@ -20,15 +19,15 @@ const SideNavSmall = () => {
         <>
           <Navbar className="SideNavSmall">
             <GrClose size={55} onClick={() => setOpened(false)} />
-            <Nav.Link className="SideNav-header">
-              <Link to="/">Photo Gallery</Link>
-            </Nav.Link>
+            <Link className="SideNav-header" to="/">
+              Photo Gallery
+            </Link>
+
             <InputGroup>
               <FormControl aria-label="Search" />
               <Button>Search</Button>
             </InputGroup>
-            <Nav.Link>Description</Nav.Link>
-            <Nav.Link>OHHHHH</Nav.Link>
+            <Link to="/info">Description</Link>
           </Navbar>
         </>
       ) : (
