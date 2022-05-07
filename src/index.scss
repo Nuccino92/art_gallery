@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -32,4 +35,5 @@ a:link {
 
 a:visited {
   text-decoration: none;
+  color: initial;
 }
