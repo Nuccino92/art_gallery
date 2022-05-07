@@ -99,7 +99,7 @@ const ArtDisplay: React.FC<Props> = ({ artData }) => {
             <a href={singleArtData?.profile} target="_blank" rel="noreferrer">
               Visit {singleArtData?.author} Unsplash page
             </a>
-            <Link to={`/art/${singleArtData?.author}`} onClick={handleClose}>
+            <Link to={`/author/${singleArtData?.author}`} onClick={handleClose}>
               View some other favorited works from {singleArtData?.author}
             </Link>
           </Container>
