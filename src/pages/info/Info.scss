@@ -1,0 +1,8 @@
+.Info {
+  color: black;
+  margin: 0 auto;
+  padding-left: 300px;
+  @media (max-width: 1350px) {
+    padding-left: 63px;
+  }
+}
