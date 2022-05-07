@@ -4,14 +4,13 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ArtDisplay.scss";
 import useWindowSize from "../../hooks/useWindowSize";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArtContext } from "../context/artContext";
 
-interface Props {
-  artData: Array<Art>;
-}
+const ArtDisplay: React.FC = () => {
+  const artContext = useContext(ArtContext);
 
-const ArtDisplay: React.FC<Props> = ({ artData }) => {
   const [smallScreen, setSmallScreen] = useState<boolean>(false);
   const windowSize = useWindowSize();
 
@@ -36,7 +35,7 @@ const ArtDisplay: React.FC<Props> = ({ artData }) => {
     <>
       <Container className="ArtDisplay">
         <Row>
-          {artData?.map((art, index) => {
+          {artContext?.art.map((each, index) => {
             return (
               <Col
                 key={index}
@@ -45,9 +44,9 @@ const ArtDisplay: React.FC<Props> = ({ artData }) => {
                 sm={!smallScreen ? 6 : 11}
               >
                 <img
-                  src={art.picture}
+                  src={each.picture}
                   alt="art"
-                  onClick={() => handleShow(art)}
+                  onClick={() => handleShow(each)}
                 />
               </Col>
             );
@@ -63,7 +62,7 @@ const ArtDisplay: React.FC<Props> = ({ artData }) => {
       >
         <Modal.Header closeButton>
           <Modal.Title>
-            <Link to={`/art/${singleArtData?.author}`}>
+            <Link to={`/author/${singleArtData?.author}`}>
               {singleArtData?.author}
             </Link>
           </Modal.Title>
