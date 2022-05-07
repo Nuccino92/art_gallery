@@ -2,9 +2,10 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/home/Home";
-import Artwork from "./pages/artwork/Artwork";
 import NotFound from "./pages/notFound/NotFound";
 import SideNav from "./components/sidenav/SideNav";
+import AuthorPage from "./pages/authorPage/AuthorPage";
+import Info from "./pages/info/Info";
 
 const App: React.FC = () => {
   return (
@@ -13,8 +14,8 @@ const App: React.FC = () => {
         <SideNav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/art/:id" element={<Artwork />} />
-          <Route path="/author/:id" />
+          <Route path="/author/:id" element={<AuthorPage />} />
+          <Route path="/info" element={<Info />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
