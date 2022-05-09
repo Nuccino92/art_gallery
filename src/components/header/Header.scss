@@ -1,7 +1,49 @@
 .Header {
   transition: 0.8s ease !important;
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 44px;
+      margin-right: 22px;
+    }
+  }
 }
 
 .shrink {
   height: 12vh !important;
+}
+
+/* CSS */
+.Header-visit-link {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 13px 22px 13px;
+  outline: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index: 1;
+}
+
+.Header-visit-link:after {
+  content: "";
+  background-color: #e1d589;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 8px;
+  left: 8px;
+  transition: 0.2s;
+}
+
+.Header-visit-link:hover:after {
+  top: 0;
+  left: 0;
 }
