@@ -15,6 +15,7 @@ interface Props {
 
 interface Context {
   allArt: Array<Art>;
+  setAllArt: Dispatch<SetStateAction<Art[]>>;
   art: Array<Art>;
   setArt: Dispatch<SetStateAction<Art[]>>;
 }
@@ -28,14 +29,8 @@ const ArtContextProvider = ({ children }: Props) => {
   // state the hold all art data
   const [allArt, setAllArt] = useState<Array<Art>>([]);
 
-  useEffect(() => {
-    artQuery().then((res) => {
-      setAllArt(res);
-    });
-  }, []);
-
   return (
-    <ArtContext.Provider value={{ art, setArt, allArt }}>
+    <ArtContext.Provider value={{ art, setArt, allArt, setAllArt }}>
       {children}
     </ArtContext.Provider>
   );
