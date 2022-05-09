@@ -9,14 +9,31 @@
   min-width: 300px;
   width: 300px;
   background-color: #e1d589;
+  border-right: 2px solid rgba(151, 151, 151, 0.3);
+
+  .input-group {
+    margin-bottom: 10px;
+  }
 
   .SideNav-header {
     font-size: 27px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  img {
+    height: auto;
+    width: 230px;
   }
 }
 
 .SideNavSmall {
+  padding: 30px;
   background-color: #e1d589;
+  opacity: 1;
   z-index: 100000000000;
   height: 100vh;
   min-height: -webkit-fill-available;
@@ -25,8 +42,33 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  animation: appear 0.6s ease forwards;
+  animation: appear 0.72s ease forwards;
   overflow: hidden;
+  width: 300px;
+  box-shadow: 10px 0 5px -2px rgb(222, 222, 222);
+
+  &::before {
+    content: "";
+    position: fixed;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.217);
+    z-index: -1;
+    margin-left: 300px;
+    animation: appear-background 0.6s ease forwards;
+
+    @keyframes appear-background {
+      from {
+        margin-left: 100vw;
+      }
+      to {
+        margin-left: 300px;
+      }
+    }
+  }
 
   @keyframes appear {
     from {
@@ -46,13 +88,34 @@
       left: 0;
     }
   }
+
+  .SideNav-header {
+    font-size: 27px;
+    margin-bottom: 10px;
+  }
+
+  .input-group {
+    margin-bottom: 10px;
+  }
+
+  a {
+    font-size: 22px;
+    margin: 10px 0;
+
+    img {
+      height: auto;
+      width: 230px;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 150px;
+  }
 }
 
-.SideNav-hamburger {
-  overflow: visible;
-  height: 100vh;
-}
-
+// minimized small nav bar
 .hamburger-container {
   width: min-content;
   background-color: #e1d589;
@@ -65,4 +128,36 @@
   width: 63px !important;
   display: flex;
   justify-content: center;
+  z-index: 100;
+  border-right: 2px solid rgba(151, 151, 151, 0.3);
+
+  @media (max-width: 600px) {
+    width: 40px !important;
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+// search results
+div {
+  position: relative;
+  .search-results-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0;
+    div {
+      color: black;
+      padding: 10px;
+
+      &:hover {
+        background-color: rgb(110, 110, 192);
+      }
+    }
+  }
 }

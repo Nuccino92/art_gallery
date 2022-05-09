@@ -1,8 +1,16 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { Navbar, InputGroup, Button, FormControl } from "react-bootstrap";
+import {
+  Navbar,
+  InputGroup,
+  Button,
+  FormControl,
+  Container,
+  Nav,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ArtContext } from "../context/artContext";
 import { Art } from "../../models/art";
+import UnsplashLogo from "../../components/header/unsplash-logo.png";
 
 const SideNavNormal = () => {
   const artContext = useContext(ArtContext);
@@ -10,7 +18,13 @@ const SideNavNormal = () => {
   // state for searchbar data
   const [searchFilter, setSearchFilter] = useState<Array<Art> | void>([]);
 
-  // artContext?.allArt
+  const [searchBarFocus, setSearchBarFocus] = useState<boolean>(false);
+
+  const handleBlur = () => {
+    setTimeout(() => {
+      setSearchBarFocus(false);
+    }, 100);
+  };
 
   const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
     const word = e.target.value;
@@ -23,14 +37,8 @@ const SideNavNormal = () => {
       return art.author.toLowerCase().includes(word.toLowerCase());
     });
 
-    word === ""
-      ? setSearchFilter(artContext?.allArt)
-      : setSearchFilter(newFilter);
+    word === "" ? setSearchFilter([]) : setSearchFilter(newFilter);
   };
-
-  useEffect(() => {
-    console.log(searchFilter);
-  }, [searchFilter]);
 
   return (
     <Navbar className="SideNavNormal" style={{ color: "black" }}>
@@ -38,13 +46,40 @@ const SideNavNormal = () => {
         Photo Gallery
       </Link>
       <InputGroup>
-        <FormControl aria-label="Search" onChange={handleFilter} />
-        <Button>Search</Button>
+        <FormControl
+          aria-label="Search"
+          onChange={handleFilter}
+          onFocus={() => setSearchBarFocus(true)}
+          onBlur={handleBlur}
+          placeholder="Find Authors"
+        />
       </InputGroup>
-      <Link className="SideNav-header" to="/">
-        Home
-      </Link>
+      {searchBarFocus && (
+        <Container>
+          <Container className="search-results-container">
+            {searchFilter?.length === 0 ? (
+              <div>No results found</div>
+            ) : (
+              searchFilter?.map((result, index) => {
+                return (
+                  <Link to={`/author/${result.author}`} key={index}>
+                    <div key={index}>{result.author}</div>
+                  </Link>
+                );
+              })
+            )}
+          </Container>
+        </Container>
+      )}
+      <Link to="/">Home</Link>
       <Link to="/info">Description</Link>
+      <Nav.Link
+        style={{ position: "absolute", bottom: 0 }}
+        href="https://unsplash.com"
+        target="_blank"
+      >
+        <img src={UnsplashLogo} alt="Unsplash"></img>
+      </Nav.Link>
     </Navbar>
   );
 };
