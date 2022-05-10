@@ -3,7 +3,6 @@ import { GrClose } from "react-icons/gr";
 import {
   Navbar,
   InputGroup,
-  Button,
   FormControl,
   Container,
   Nav,
@@ -49,7 +48,11 @@ const SideNavSmall = () => {
       {opened ? (
         <>
           <Navbar className="SideNavSmall">
-            <Link className="SideNav-header" to="/">
+            <Link
+              className="SideNav-header"
+              to="/"
+              onClick={() => setOpened(false)}
+            >
               Photo Gallery
             </Link>
 
@@ -60,8 +63,8 @@ const SideNavSmall = () => {
                 onChange={handleFilter}
                 onFocus={() => setSearchBarFocus(true)}
                 onBlur={handleBlur}
+                placeholder="Search Authors"
               />
-              <Button>Search</Button>
             </InputGroup>
             {searchBarFocus && (
               <Container>
@@ -69,9 +72,13 @@ const SideNavSmall = () => {
                   {searchFilter?.length === 0 ? (
                     <div>No results found</div>
                   ) : (
-                    searchFilter?.map((result, index) => {
+                    searchFilter?.slice(0, 9).map((result, index) => {
                       return (
-                        <Link to={`/author/${result.author}`} key={index}>
+                        <Link
+                          to={`/author/${result.author}`}
+                          key={index}
+                          onClick={() => setOpened(false)}
+                        >
                           <div key={index}>{result.author}</div>
                         </Link>
                       );
@@ -80,8 +87,12 @@ const SideNavSmall = () => {
                 </Container>
               </Container>
             )}
-            <Link to="/">Home</Link>
-            <Link to="/info">Description</Link>
+            <Link onClick={() => setOpened(false)} to="/">
+              Home
+            </Link>
+            <Link onClick={() => setOpened(false)} to="/info">
+              Information
+            </Link>
             <GrClose
               className="close-btn"
               size={55}
@@ -91,6 +102,7 @@ const SideNavSmall = () => {
               style={{ position: "absolute", bottom: 0 }}
               href="https://unsplash.com"
               target="_blank"
+              onClick={() => setOpened(false)}
             >
               <img src={UnsplashLogo} alt="Unsplash"></img>
             </Nav.Link>
