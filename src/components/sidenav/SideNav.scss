@@ -1,3 +1,5 @@
+@use "../../scss/variables" as var;
+
 .SideNavNormal {
   padding: 30px;
   display: flex;
@@ -8,11 +10,12 @@
   left: 0;
   min-width: 300px;
   width: 300px;
-  background-color: #e1d589;
-  border-right: 2px solid rgba(151, 151, 151, 0.3);
+  background-color: var.$primary-color;
+  border-right: 7px solid rgba(177, 183, 152, 0.3);
+  z-index: 1000000000000000000;
 
   .input-group {
-    margin-bottom: 10px;
+    margin: 10px;
   }
 
   .SideNav-header {
@@ -32,9 +35,9 @@
 
 .SideNavSmall {
   padding: 30px;
-  background-color: #e1d589;
+  background: var.$primary-color;
   opacity: 1;
-  z-index: 100000000000;
+  z-index: 1000000000000000000;
   height: 100vh;
   min-height: -webkit-fill-available;
   position: fixed;
@@ -45,7 +48,7 @@
   animation: appear 0.72s ease forwards;
   overflow: hidden;
   width: 300px;
-  box-shadow: 10px 0 5px -2px rgb(222, 222, 222);
+  border-right: 7px solid rgba(177, 183, 152, 0.3);
 
   &::before {
     content: "";
@@ -118,7 +121,7 @@
 // minimized small nav bar
 .hamburger-container {
   width: min-content;
-  background-color: #e1d589;
+  background-color: var.$primary-color;
   height: 100vh;
   min-height: -webkit-fill-available;
   position: fixed;
@@ -129,7 +132,7 @@
   display: flex;
   justify-content: center;
   z-index: 100;
-  border-right: 2px solid rgba(151, 151, 151, 0.3);
+  border-right: 7px solid rgba(177, 183, 152, 0.3);
 
   @media (max-width: 600px) {
     width: 40px !important;
@@ -156,7 +159,7 @@ div {
       padding: 10px;
 
       &:hover {
-        background-color: rgb(110, 110, 192);
+        background-color: #0d6dfd5d;
       }
     }
   }

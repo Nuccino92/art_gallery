@@ -1,6 +1,9 @@
+@use "../../scss/variables" as var;
+
 .AuthorPage {
   margin: 0 auto;
   padding-left: 300px;
+  background-color: var.$background-color;
   @media (max-width: 1350px) {
     padding-left: 63px;
   }

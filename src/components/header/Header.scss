@@ -1,5 +1,8 @@
+@use "../../scss/variables" as var;
+
 .Header {
   transition: 0.8s ease !important;
+  background-color: #faf9f694;
 
   .container {
     display: flex;
@@ -16,7 +19,7 @@
   height: 12vh !important;
 }
 
-/* CSS */
+// the button that appears when visiting author page
 .Header-visit-link {
   font-size: 16px;
   font-weight: 600;
@@ -33,7 +36,7 @@
 
 .Header-visit-link:after {
   content: "";
-  background-color: #e1d589;
+  background-color: var.$primary-color;
   width: 100%;
   z-index: -1;
   position: absolute;
