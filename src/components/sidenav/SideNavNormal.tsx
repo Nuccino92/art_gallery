@@ -1,8 +1,7 @@
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import {
   Navbar,
   InputGroup,
-  Button,
   FormControl,
   Container,
   Nav,
@@ -51,7 +50,7 @@ const SideNavNormal = () => {
           onChange={handleFilter}
           onFocus={() => setSearchBarFocus(true)}
           onBlur={handleBlur}
-          placeholder="Find Authors"
+          placeholder="Search Authors"
         />
       </InputGroup>
       {searchBarFocus && (
@@ -60,7 +59,7 @@ const SideNavNormal = () => {
             {searchFilter?.length === 0 ? (
               <div>No results found</div>
             ) : (
-              searchFilter?.map((result, index) => {
+              searchFilter?.slice(0, 9).map((result, index) => {
                 return (
                   <Link to={`/author/${result.author}`} key={index}>
                     <div key={index}>{result.author}</div>
@@ -72,7 +71,7 @@ const SideNavNormal = () => {
         </Container>
       )}
       <Link to="/">Home</Link>
-      <Link to="/info">Description</Link>
+      <Link to="/info">Information</Link>
       <Nav.Link
         style={{ position: "absolute", bottom: 0 }}
         href="https://unsplash.com"
