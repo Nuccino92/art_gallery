@@ -1,4 +1,16 @@
+@use "./scss/variables" as var;
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+#root {
+  background-color: var.$background-color;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.App {
+  background-color: var.$background-color;
+}
 
 * {
   margin: 0;
@@ -11,7 +23,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #e1d589 #ffffff;
+  scrollbar-color: var.$primary-color #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
@@ -24,9 +36,13 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #e1d589;
+  background-color: var.$primary-color;
   border-radius: 3px;
   border: 0px none #b5abab;
+}
+
+body {
+  background-color: var.$background-color;
 }
 
 a:link {
@@ -35,5 +51,5 @@ a:link {
 
 a:visited {
   text-decoration: none;
-  color: initial;
+  color: black;
 }
