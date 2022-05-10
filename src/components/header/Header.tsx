@@ -26,7 +26,6 @@ const Header = ({ location, author, link }: Props) => {
       style={{
         height: "22vh",
         transition: "0.8s ease",
-        backgroundColor: "rgba(255, 255, 255, 0.676)",
       }}
     >
       {location === "home" ? (
