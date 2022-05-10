@@ -77,7 +77,7 @@ const ArtDisplay: React.FC = () => {
         </Modal.Body>
         <Modal.Footer>
           <Container className="container-fluid d-flex flex-column align-items-center">
-            <Row>
+            <Row style={{ marginBottom: "10px" }}>
               <Col align="center">
                 Views
                 <Col>
@@ -96,10 +96,10 @@ const ArtDisplay: React.FC = () => {
               </Col>
             </Row>
             <a href={singleArtData?.profile} target="_blank" rel="noreferrer">
-              Visit {singleArtData?.author} Unsplash page
+              Visit authors Unsplash page
             </a>
             <Link to={`/author/${singleArtData?.author}`} onClick={handleClose}>
-              View some other favorited works from {singleArtData?.author}
+              View some of the other authors works
             </Link>
           </Container>
         </Modal.Footer>
